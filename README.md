@@ -2,6 +2,9 @@
 
 Excel ServerはModel Context Protocol（MCP）を使用して、xlwings-rpc APIにアクセスし、Excelワークブックを操作するためのサーバーアプリケーションです。
 
+※ 個人プロジェクトであり詳細は未公開です。ご参考までに
+
+
 ## 機能
 
 - HTTP経由でxlwings-rpc APIにアクセス
