@@ -18,7 +18,7 @@ const server = new McpServer({
 // ------------- アプリケーション操作ツール -------------
 
 server.tool(
-  "app.list",
+  "excel_app_list",
   "すべての実行中のExcelアプリケーションを取得します",
   {},
   async () => {
@@ -49,7 +49,7 @@ server.tool(
 );
 
 server.tool(
-  "app.get",
+  "excel_app_get",
   "指定されたPIDまたはアクティブなExcelアプリケーションを取得します",
   {
     pid: z.number().optional().describe("アプリケーションのPID（オプション）"),
@@ -82,7 +82,7 @@ server.tool(
 );
 
 server.tool(
-  "app.create",
+  "excel_app_create",
   "新しいExcelアプリケーションを作成します",
   {
     visible: z
@@ -122,7 +122,7 @@ server.tool(
 );
 
 server.tool(
-  "app.quit",
+  "excel_app_quit",
   "Excelアプリケーションを終了します",
   {
     pid: z.number().describe("アプリケーションのPID"),
@@ -161,7 +161,7 @@ server.tool(
 // ------------- ワークブック操作ツール -------------
 
 server.tool(
-  "book.list",
+  "excel_book_list",
   "すべての開いているワークブックを取得します",
   {
     pid: z.number().optional().describe("アプリケーションのPID（オプション）"),
@@ -194,7 +194,7 @@ server.tool(
 );
 
 server.tool(
-  "book.get",
+  "excel_book_get",
   "指定されたワークブックを取得します",
   {
     name: z.string().describe("ワークブック名"),
@@ -228,7 +228,7 @@ server.tool(
 );
 
 server.tool(
-  "book.open",
+  "excel_book_open",
   "ワークブックを開きます",
   {
     path: z.string().describe("ワークブックのパス"),
@@ -272,7 +272,7 @@ server.tool(
 );
 
 server.tool(
-  "book.create",
+  "excel_book_create",
   "新しいワークブックを作成します",
   {
     pid: z.number().optional().describe("アプリケーションのPID（オプション）"),
@@ -305,7 +305,7 @@ server.tool(
 );
 
 server.tool(
-  "book.close",
+  "excel_book_close",
   "ワークブックを閉じます",
   {
     name: z.string().describe("ワークブック名"),
@@ -345,7 +345,7 @@ server.tool(
 // ------------- シート操作ツール -------------
 
 server.tool(
-  "sheet.list",
+  "excel_sheet_list",
   "ワークブック内のすべてのシートを取得します",
   {
     book: z.string().describe("ワークブック名"),
@@ -379,7 +379,7 @@ server.tool(
 );
 
 server.tool(
-  "sheet.get",
+  "excel_sheet_get",
   "特定のシートを取得します",
   {
     book: z.string().describe("ワークブック名"),
@@ -416,7 +416,7 @@ server.tool(
 // ------------- ヘルスチェックツール -------------
 
 server.tool(
-  "health.check",
+  "excel_health_check",
   "xlwings-rpcサーバーの接続状態を確認します",
   {},
   async () => {
@@ -475,7 +475,7 @@ server.tool(
 // ------------- レンジ操作ツール -------------
 
 server.tool(
-  "range.get_value",
+  "excel_range_get_value",
   "セル範囲の値を取得します",
   {
     book: z.string().describe("ワークブック名"),
@@ -516,7 +516,7 @@ server.tool(
 );
 
 server.tool(
-  "range.set_value",
+  "excel_range_set_value",
   "セル範囲に値を設定します",
   {
     book: z.string().describe("ワークブック名"),
@@ -559,7 +559,7 @@ server.tool(
 );
 
 server.tool(
-  "range.get_formula",
+  "excel_range_get_formula",
   "セル範囲の数式を取得します",
   {
     book: z.string().describe("ワークブック名"),
@@ -600,7 +600,7 @@ server.tool(
 );
 
 server.tool(
-  "range.set_formula",
+  "excel_range_set_formula",
   "セル範囲に数式を設定します",
   {
     book: z.string().describe("ワークブック名"),
@@ -645,7 +645,7 @@ server.tool(
 // ------------- 直接アクセスツール -------------
 
 server.tool(
-  "excel.direct",
+  "excel_direct",
   "xlwings-rpcサーバーに直接JSON-RPCリクエストを送信します",
   {
     method: z.string().describe("実行するxlwings-rpcメソッド名"),
