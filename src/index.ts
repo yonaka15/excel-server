@@ -197,12 +197,12 @@ server.tool(
   "excel_book_get",
   "指定されたワークブックを取得します",
   {
-    name: z.string().describe("ワークブック名"),
+    book: z.string().describe("ワークブック名"),
     pid: z.number().optional().describe("アプリケーションのPID（オプション）"),
   },
-  async ({ name, pid }) => {
+  async ({ book, pid }) => {
     try {
-      const result = await xlwingsClient.bookGet(name, pid);
+      const result = await xlwingsClient.bookGet(book, pid);
       return {
         content: [
           {
@@ -308,16 +308,16 @@ server.tool(
   "excel_book_close",
   "ワークブックを閉じます",
   {
-    name: z.string().describe("ワークブック名"),
+    book: z.string().describe("ワークブック名"),
     pid: z.number().optional().describe("アプリケーションのPID（オプション）"),
     save: z
       .boolean()
       .optional()
       .describe("保存するかどうか（オプション、デフォルト: true）"),
   },
-  async ({ name, pid, save }) => {
+  async ({ book, pid, save }) => {
     try {
-      const result = await xlwingsClient.bookClose(name, pid, save);
+      const result = await xlwingsClient.bookClose(book, pid, save);
       return {
         content: [
           {
